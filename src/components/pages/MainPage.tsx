@@ -8,9 +8,15 @@ export default async function MainPage() {
   return (
     <>
       <Welcome />
+      <div id="about">
       <About />
+      </div>
+      <div id="projects">
       <ProjectsServer />
+      </div>
+      <div id="contact">
       <Contact />
+      </div>
     </>
   );
 }
