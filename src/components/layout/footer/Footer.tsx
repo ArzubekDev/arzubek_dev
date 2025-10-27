@@ -1,6 +1,7 @@
 import React from 'react';
 import scss from "./Footer.module.scss";
 import { FaTelegramPlane, FaInstagram, FaGithub, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import { FaHeartPulse } from "react-icons/fa6";
 
 const Footer = () => {
     return (
@@ -23,7 +24,7 @@ const Footer = () => {
                 </a>
             </div>
             <p className={scss.copyright}>
-                 <span>Made with ❤️ using NextJS</span> <br /> <span> {new Date().getFullYear()} Arzubek</span>
+                 <span>Made with <FaHeartPulse /> using NextJS</span> <br /> <span> {new Date().getFullYear()} Arzubek</span>
             </p>
         </footer>
     );
