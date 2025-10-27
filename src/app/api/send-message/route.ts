@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const { name, email, message } = await request.json();
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
     const text = `New message:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
 
     const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
