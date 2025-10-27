@@ -1,0 +1,223 @@
+.about {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    color: white;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    h1 {
+      font-size: 90px;
+      font-weight: 800;
+      color: rgba(103, 33, 235, 0.15);
+      letter-spacing: 5px;
+      align-self: flex-start;
+    }
+
+    .aboutContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-height: 100vh;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h3 {
+          font-size: 26px;
+          font-weight: 400;
+          color: rgb(209, 207, 207);
+        }
+
+        p {
+          width: 600px;
+          color: white;
+          font-weight: 200;
+          font-size: 14px;
+          line-height: 26px;
+          letter-spacing: 0.3px;
+        }
+      }
+
+      h4 {
+        font-size: 18px;
+        font-weight: 300;
+      }
+
+      .skills {
+        width: 400px;
+        height: 110px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        h5 {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          font-weight: 200;
+
+          span {
+            color: #6721eb;
+          }
+        }
+      }
+
+      /* =======================
+         MODERN IMAGE BLOCK STYLE
+         ======================= */
+      .image {
+        position: relative;
+        width: 320px;
+        height: 360px;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 40px rgba(103, 33, 235, 0.15);
+        transition: all 0.5s ease;
+        cursor: pointer;
+
+        /* next/image tag override */
+        :global(img) {
+          width: 100% !important;
+          height: 100% !important;
+          border-radius: 20px !important;
+          object-fit: cover !important;
+          transform: scale(1);
+          transition: transform 0.6s ease, filter 0.6s ease;
+          filter: brightness(85%) contrast(105%);
+        }
+
+        &:hover {
+          transform: scale(1.02) translateY(-5px);
+          box-shadow: 0 0 60px rgba(103, 33, 235, 0.35);
+
+          :global(img) {
+            transform: scale(1.1);
+            filter: brightness(100%) contrast(110%);
+          }
+
+          &::after {
+            opacity: 1;
+            transform: rotate(360deg);
+          }
+        }
+
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 20px;
+          padding: 2px;
+          background: linear-gradient(130deg, #6721eb, #b799ff, #6c47ff);
+
+          
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor; 
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask-composite: exclude; 
+
+          opacity: 0.7;
+          transition: all 0.8s ease;
+          z-index: 2;
+        }
+
+      
+        .front {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            145deg,
+            rgba(80, 14, 202, 0.25),
+            rgba(0, 0, 0, 0.4)
+          );
+          z-index: 1;
+          opacity: 0.9;
+          transition: opacity 0.4s ease;
+          border-radius: 20px;
+        }
+
+        &:hover .front {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+
+  /* =======================
+     Responsive дизайн
+     ======================= */
+  @media (max-width: 1024px) {
+    .content {
+      width: 80%;
+    }
+
+    .aboutContainer {
+      .info p {
+        width: 100%;
+      }
+
+      .image {
+        width: 280px;
+        height: 320px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 70px;
+    }
+
+    .aboutContainer {
+      align-items: center;
+      text-align: center;
+
+      .info p {
+        width: 100%;
+      }
+
+      .skills {
+        width: 100%;
+        height: auto;
+        align-items: center;
+      }
+
+      .image {
+        width: 250px;
+        height: 280px;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}

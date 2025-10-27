@@ -1,0 +1,188 @@
+.header {
+  position: fixed;
+  padding-top: 8px;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  transition: all 0.3s ease;
+  will-change: transform, background-color, padding;
+  &.active {
+    padding-inline: 40px;
+    padding-bottom: 8px;
+    height: 60px;
+    backdrop-filter: blur(6px);
+    background: #07000e87;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+    .logoContainer {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3%;
+      height: 70px;
+      position: static;
+      z-index: 0;
+      &:hover {
+        .front,
+        .back,
+        h2 {
+          transform: translate(6px, 4px);
+        }
+      }
+      .logo {
+        position: absolute;
+        z-index: 1;
+        width: 50px;
+        height: 50px;
+        clip-path: polygon(1% 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+        background: #6721eb;
+      }
+      .back {
+        width: 50px;
+        height: 50px;
+        background: #6721eb;
+        clip-path: polygon(1% 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+        position: absolute;
+        z-index: 2;
+        transition: transform 0.2s ease-in;
+      }
+      .front {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        clip-path: polygon(1% 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+
+        z-index: 3;
+        background: #000;
+        transition: transform 0.2s ease-in;
+      }
+      h2 {
+        position: absolute;
+        z-index: 4;
+        color: transparent;
+        transition: transform 0.2s ease-in;
+        background: #bfbff5;
+        background: linear-gradient(
+          180deg,
+          rgba(191, 191, 245, 1) 15%,
+          rgba(103, 33, 235, 1) 100%
+        );
+        background-clip: "text";
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 58px;
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 58px;
+        .navLink {
+          font-size: 13px;
+          color: #fdfcfd;
+          font-weight: 100;
+          display: flex;
+          align-items: end;
+          transition: color 0.2s ease;
+          span {
+            font-size: 10px;
+            color: #6721eb;
+          }
+          &:hover {
+            color: #6721eb;
+          }
+        }
+      }
+      &:has(.navLink:hover) {
+        .navLink:not(:hover) {
+          color: rgba(234, 233, 233, 0.801);
+        }
+      }
+
+.resume {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 42px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e6e3ff;
+  background: rgba(10, 5, 25, 0.6);
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+
+  // glowing animated border (cross-browser)
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(120deg, #6721eb, #b191ff, #6721eb);
+    background-size: 200% 200%;
+
+    /* ✅ Standard + WebKit masks for compatibility */
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    animation: borderGlow 3s linear infinite;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  &:hover {
+    background: rgba(103, 33, 235, 0.15);
+    transform: scale(1.02);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(103, 33, 235, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+    }
+  }
+}

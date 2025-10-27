@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  font-family: var(--font-jetbrains-mono, var(--font-inconsolata)), monospace;
+  background: #07000e;
+  scrollbar-width: none;
+}
+
+.container {
+  width: 98%;
+  margin: 0 auto;
+}
+input {
+  outline: none;
+  border: none;
+}
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+
+
+
+// | Префикс     | Мааниси                                   |
+// | ----------- | ----------------------------------------- |
+// | `Feat:`     | жаңы функция                              |
+// | `Fix:`      | ката оңдоо                                |
+// | `Refactor:` | код тазалоо, логика өзгөртпөй             |
+// | `Style:`    | стилдерди оңдоо                           |
+// | `Docs:`     | документ/README өзгөртүү                  |
+// | `Chore:`    | жардамчы өзгөртүүлөр (config, build ж.б.) |
