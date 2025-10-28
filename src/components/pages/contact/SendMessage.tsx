@@ -32,7 +32,6 @@ const SendMessage = () => {
   ) => {
     const { name, value } = e.target;
 
-    // Input өзгөргөндө ошол талаанын катасын өчүрүү
     setFormData((prev) => ({ ...prev, [name]: value }));
     setError((prev) => ({ ...prev, [name]: false }));
   };
@@ -46,7 +45,6 @@ const SendMessage = () => {
       message: !formData.message.trim(),
     };
 
-    // Эгер жок дегенде бир ката болсо, токтотобуз
     if (Object.values(newErrors).some(Boolean)) {
       setError(newErrors);
       return;

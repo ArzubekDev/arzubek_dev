@@ -5,13 +5,32 @@
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 1200px) {
+    min-height: 70vh;
+  }
+  @media (max-width: 1000px) {
+    min-height: 80vh;
+  }
+@media (max-width: 800px) {
+  align-items: start;
+    min-height: 130vh;
+  }
+
   .content {
     color: white;
-    width: 60%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     gap: 30px;
-
+    @media (max-width: 1200px) {
+      width: 86%;
+    }
+    @media (max-width: 1000px) {
+      width: 96%;
+    }
+    @media (max-width: 800px) {
+      width: 74%;
+    }
     h1 {
       font-size: 90px;
       font-weight: 800;
@@ -27,57 +46,66 @@
       flex-wrap: wrap;
       gap: 30px;
       max-height: 100vh;
-
-      .info {
+      @media (max-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      @media (max-width: 800px) {
+        justify-content: center;
+      }
+      .infoContainer {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-
-        h3 {
-          font-size: 26px;
-          font-weight: 400;
-          color: rgb(209, 207, 207);
-        }
-
-        p {
-          width: 600px;
-          color: white;
-          font-weight: 200;
-          font-size: 14px;
-          line-height: 26px;
-          letter-spacing: 0.3px;
-        }
-      }
-
-      h4 {
-        font-size: 18px;
-        font-weight: 300;
-      }
-
-      .skills {
-        width: 400px;
-        height: 110px;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        gap: 10px;
-
-        h5 {
+        gap: 20px;
+        .info {
           display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 14px;
-          font-weight: 200;
+          flex-direction: column;
+          gap: 10px;
 
-          span {
-            color: #6721eb;
+          h3 {
+            font-size: 26px;
+            font-weight: 400;
+            color: rgb(209, 207, 207);
+          }
+
+          p {
+            width: 600px;
+            color: white;
+            font-weight: 200;
+            font-size: 14px;
+            line-height: 26px;
+            letter-spacing: 0.3px;
+          }
+        }
+
+        h4 {
+          font-size: 18px;
+          font-weight: 300;
+          color: #6721eb;
+        }
+
+        .skills {
+          width: 400px;
+          height: 110px;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          h5 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 200;
+
+            span {
+              color: #6721eb;
+            }
           }
         }
       }
 
-      /* =======================
-         MODERN IMAGE BLOCK STYLE
-         ======================= */
       .image {
         position: relative;
         width: 320px;
@@ -92,8 +120,10 @@
         box-shadow: 0 0 40px rgba(103, 33, 235, 0.15);
         transition: all 0.5s ease;
         cursor: pointer;
-
-        /* next/image tag override */
+        @media (max-width: 800px) {
+          width: 280px;
+          height: 310px;
+        }
         :global(img) {
           width: 100% !important;
           height: 100% !important;
@@ -119,7 +149,6 @@
           }
         }
 
-
         &::after {
           content: "";
           position: absolute;
@@ -128,19 +157,17 @@
           padding: 2px;
           background: linear-gradient(130deg, #6721eb, #b799ff, #6c47ff);
 
-          
           -webkit-mask: linear-gradient(#fff 0 0) content-box,
             linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor; 
+          -webkit-mask-composite: xor;
           mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          mask-composite: exclude; 
+          mask-composite: exclude;
 
           opacity: 0.7;
           transition: all 0.8s ease;
           z-index: 2;
         }
 
-      
         .front {
           position: absolute;
           inset: 0;
@@ -158,56 +185,6 @@
         &:hover .front {
           opacity: 0.2;
         }
-      }
-    }
-  }
-
-  /* =======================
-     Responsive дизайн
-     ======================= */
-  @media (max-width: 1024px) {
-    .content {
-      width: 80%;
-    }
-
-    .aboutContainer {
-      .info p {
-        width: 100%;
-      }
-
-      .image {
-        width: 280px;
-        height: 320px;
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .content {
-      width: 90%;
-    }
-
-    h1 {
-      font-size: 70px;
-    }
-
-    .aboutContainer {
-      align-items: center;
-      text-align: center;
-
-      .info p {
-        width: 100%;
-      }
-
-      .skills {
-        width: 100%;
-        height: auto;
-        align-items: center;
-      }
-
-      .image {
-        width: 250px;
-        height: 280px;
       }
     }
   }

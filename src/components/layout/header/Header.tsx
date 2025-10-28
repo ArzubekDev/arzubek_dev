@@ -18,6 +18,7 @@ const navItems: NavItem[] = [
 export default function Header() {
   const [activeId, setActiveId] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +34,6 @@ export default function Header() {
       const aboutTop = about.getBoundingClientRect().top + window.scrollY;
       const projectTop = projects.getBoundingClientRect().top + window.scrollY;
       const contactTop = contact.getBoundingClientRect().top + window.scrollY;
-
       const currentY = scrollY + window.innerHeight / 2;
 
       if (currentY >= aboutTop && currentY < projectTop) setActiveId(1);
@@ -44,7 +44,6 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -64,11 +63,9 @@ export default function Header() {
               <nav key={el.id}>
                 <Link
                   href={el.link}
-                  className={scss.navLink}
-                  style={{
-                    color: activeId === el.id ? "#6721eb" : "white",
-                    transition: "color 0.3s ease",
-                  }}
+                  className={`${scss.navLink} ${
+                    activeId === el.id ? scss.active : ""
+                  }`}
                 >
                   <span>{`0${el.id}.`}</span> {el.item}
                 </Link>
@@ -77,6 +74,30 @@ export default function Header() {
             <button className={scss.resume}>
               <span>Резюме</span>
             </button>
+          </div>
+          <div
+            className={`${scss.leftmobile} ${menuOpen ? scss.menuOpen : ""}`}
+          >
+            {navItems.map((el) => (
+              <nav key={el.id}>
+                <Link
+                  href={el.link}
+                  className={scss.navLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span>{`0${el.id}.`}</span> {el.item}
+                </Link>
+              </nav>
+            ))}
+          </div>
+
+          <div
+            className={`${scss.toggle} ${menuOpen ? scss.checked : ""}`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <div className={`${scss.bar} ${scss.barTop}`}></div>
+            <div className={`${scss.bar} ${scss.barMiddle}`}></div>
+            <div className={`${scss.bar} ${scss.barBottom}`}></div>
           </div>
         </div>
       </div>

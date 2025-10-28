@@ -20,7 +20,8 @@ const About = () => {
       <div className={scss.content}>
         <h1>01</h1>
         <div className={scss.aboutContainer}>
-          <div className={scss.info}>
+         <div className={scss.infoContainer}>
+           <div className={scss.info}>
             <h3>Обо мне</h3>
             <p>
               Я начал свой путь в IT в августе 2024 года, познакомившись с
@@ -44,7 +45,8 @@ const About = () => {
               </h5>
             ))}
           </div>
-          <div className={scss.image}>
+         </div>
+        <div className={scss.image}>
             <Image
               src={"/A.jpeg"}
               width={290}

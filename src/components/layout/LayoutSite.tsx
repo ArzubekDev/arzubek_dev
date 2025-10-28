@@ -11,7 +11,10 @@ interface LayoutSiteProps {
 }
 
 const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
-  useEffect(() => {
+useEffect(() => {
+  // Эгер курсор колдоно албаса — функция иштебейт
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+
   const light = document.createElement("div");
   light.id = "light";
   light.style.position = "fixed";
@@ -38,7 +41,6 @@ const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
     currentY += (targetY - currentY) * 0.3;
 
     light.style.background = `radial-gradient(circle at ${currentX}px ${currentY}px, rgba(116, 2, 223, 0.16), transparent 200px)`;
-
     requestAnimationFrame(animate);
   }
 
@@ -50,6 +52,8 @@ const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
     document.body.removeChild(light);
   };
 }, []);
+
+
   return (
     <div
       className={scss.layoutSite}

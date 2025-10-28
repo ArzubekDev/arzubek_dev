@@ -3,7 +3,6 @@ import React from "react";
 import scss from "./Projects.module.scss";
 import Image from "next/image";
 import { FiLink } from "react-icons/fi";
-import { BsInfo } from "react-icons/bs";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
 

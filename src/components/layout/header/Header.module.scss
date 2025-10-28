@@ -10,6 +10,13 @@
   justify-content: start;
   transition: all 0.3s ease;
   will-change: transform, background-color, padding;
+  @media (max-width: 800px) {
+    padding-inline: 40px;
+    padding-bottom: 8px;
+    height: 60px;
+    backdrop-filter: blur(6px);
+    background: #07000e87;
+  }
   &.active {
     padding-inline: 40px;
     padding-bottom: 8px;
@@ -31,6 +38,10 @@
       height: 70px;
       position: static;
       z-index: 0;
+
+      @media (max-width: 1000px) {
+        width: 5%;
+      }
       &:hover {
         .front,
         .back,
@@ -86,6 +97,9 @@
       display: flex;
       align-items: center;
       gap: 58px;
+      @media (max-width: 800px) {
+        display: none;
+      }
       nav {
         display: flex;
         align-items: center;
@@ -97,6 +111,9 @@
           display: flex;
           align-items: end;
           transition: color 0.2s ease;
+          &.active {
+            color: #6721eb;
+          }
           span {
             font-size: 10px;
             color: #6721eb;
@@ -106,83 +123,167 @@
           }
         }
       }
-      &:has(.navLink:hover) {
-        .navLink:not(:hover) {
-          color: rgba(234, 233, 233, 0.801);
+
+      .resume {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 42px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #e6e3ff;
+        background: rgba(10, 5, 25, 0.6);
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        backdrop-filter: blur(8px);
+        transition: all 0.3s ease;
+
+        // glowing animated border (cross-browser)
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          padding: 2px;
+          background: linear-gradient(120deg, #6721eb, #b191ff, #6721eb);
+          background-size: 200% 200%;
+
+          /* ✅ Standard + WebKit masks for compatibility */
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+          animation: borderGlow 3s linear infinite;
+        }
+
+        span {
+          position: relative;
+          z-index: 2;
+          transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        &:hover {
+          background: rgba(103, 33, 235, 0.15);
+          transform: scale(1.02);
+          color: #fff;
+          box-shadow: 0 0 20px rgba(103, 33, 235, 0.4);
+        }
+
+        &:active {
+          transform: scale(0.97);
         }
       }
 
-.resume {
-  position: relative;
+      @keyframes borderGlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    }
+.leftmobile {
+  transition: height 0.3s ease-in;
+  border: 2px solid #6721eb;
+  background: rgb(19, 3, 49);
+  backdrop-filter: blur(18px);
+  position: fixed;
+  right: 20px;
+  top: 60px;
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  padding: 30px;
+
+    nav{
+    .navLink{
+      color: white;
+      span{
+        color: #6721eb;
+      }
+    }
+  }
+}
+
+.menuOpen {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 42px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #e6e3ff;
-  background: rgba(10, 5, 25, 0.6);
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-
-  // glowing animated border (cross-browser)
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 2px;
-    background: linear-gradient(120deg, #6721eb, #b191ff, #6721eb);
-    background-size: 200% 200%;
-
-    /* ✅ Standard + WebKit masks for compatibility */
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask: 
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-
-    animation: borderGlow 3s linear infinite;
-  }
-
-  span {
-    position: relative;
-    z-index: 2;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-  }
-
-  &:hover {
-    background: rgba(103, 33, 235, 0.15);
-    transform: scale(1.02);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(103, 33, 235, 0.4);
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
+  height: 300px;
+  width: 220px;
 }
 
-@keyframes borderGlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
+    .toggle {
+      position: relative;
+      width: 40px;
+      height: calc(4px * 3 + 11px * 2);
+      cursor: pointer;
+      display: none;
+      transition: transform 0.4s ease;
+
+      @media (max-width: 800px) {
+        display: block;
+      }
+
+      .bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: 2px;
+        background: #6721eb;
+        transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
+      }
+
+      .barTop {
+        bottom: calc(50% + 11px + 2px);
+        transition-property: bottom, transform;
+        transition-delay: 0.35s, 0s;
+      }
+
+      .barMiddle {
+        top: calc(50% - 2px);
+        transition-property: opacity;
+        transition-delay: 0.35s;
+      }
+
+      .barBottom {
+        top: calc(50% + 11px + 2px);
+        transition-property: top, transform;
+        transition-delay: 0.35s, 0s;
+      }
+
+      &.checked {
+        .barTop {
+          bottom: calc(50% - 2px);
+          transform: rotate(135deg);
+          transition-delay: 0s, 0.35s;
+        }
+
+        .barMiddle {
+          opacity: 0;
+          transition-duration: 0s;
+          transition-delay: 0.35s;
+        }
+
+        .barBottom {
+          top: calc(50% - 2px);
+          transform: rotate(225deg);
+          transition-delay: 0s, 0.35s;
+        }
+      }
     }
   }
 }
