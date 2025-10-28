@@ -9,6 +9,10 @@
     padding-top: 180px;
     min-height: 130vh;
   }
+  @media (max-width: 480px) {
+    padding-top: 270px;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -27,6 +31,12 @@
     @media (max-width: 650px) {
       width: 86%;
       gap: 5px;
+    }
+    @media (max-width: 528px) {
+      width: 83%;
+    }
+    @media (max-width: 500px) {
+      width: 94%;
     }
 
     h1 {
@@ -49,6 +59,9 @@
       font-weight: 400;
       color: rgba(255, 255, 255, 0.8);
       text-shadow: 0 0 6px rgba(103, 33, 235, 0.4);
+      @media (max-width: 418px) {
+        font-size: 22px;
+      }
     }
 
     .block {
@@ -77,7 +90,28 @@
         height: 300px;
         margin-bottom: 20px;
       }
-
+      @media (max-width: 572px) {
+        width: 458px;
+        height: 230px;
+      }
+      @media (max-width: 528px) {
+        width: 402px;
+      }
+      @media (max-width: 500px) {
+        width: 430px;
+      }
+      @media (max-width: 480px) {
+        width: 410px;
+      }
+      @media (max-width: 449px) {
+        width: 370px;
+      }
+      @media (max-width: 436px) {
+        border-radius: 14px;
+      }
+      @media (max-width: 418px) {
+        width: 354px;
+      }
       &:hover {
         transform: translateY(-6px);
         border-color: rgba(103, 33, 235, 0.4);
@@ -92,6 +126,20 @@
         overflow: hidden;
         border-radius: 20px;
         transition: transform 0.4s ease;
+        @media (max-width: 572px) {
+          width: 460px;
+          height: 200px;
+        }
+        @media (max-width: 528px) {
+          width: 402px;
+        }
+        @media (max-width: 449px) {
+          width: 370px;
+        }
+        @media (max-width: 436px) {
+          min-width: 300px;
+          border-radius: 14px;
+        }
 
         img {
           width: 100%;
@@ -99,6 +147,19 @@
           object-fit: cover;
           border-radius: 20px;
           transition: transform 0.5s ease;
+          @media (max-width: 528px) {
+            width: 380px;
+            transform: translateX(34px);
+          }
+          @media (max-width: 449px) {
+            transform: translateX(54px);
+            width: 340px;
+          }
+          @media (max-width: 436px) {
+            width: 300px;
+            border-radius: 14px;
+            transform: translateX(74px);
+          }
         }
 
         &:hover img {
@@ -129,6 +190,13 @@
           padding-top: 40px;
           padding-left: 30px;
         }
+        @media (max-width: 500px) {
+          padding-top: 12px;
+          padding-left: 30px;
+        }
+        @media (max-width: 418px) {
+          padding-left: 15px;
+        }
         h2 {
           color: #fff;
           font-size: 30px;
@@ -136,12 +204,18 @@
           @media (max-width: 800px) {
             font-size: 25px;
           }
+          @media (max-width: 436px) {
+            font-size: 19px;
+          }
         }
 
         h3 {
           font-size: 14px;
           font-weight: 300;
           color: #bbb;
+          @media (max-width: 436px) {
+            font-size: 12px;
+          }
         }
 
         h5 {
