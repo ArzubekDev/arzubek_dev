@@ -128,14 +128,16 @@
           flex-direction: column;
           flex-wrap: wrap;
           gap: 10px;
-
+          @media (max-width: 418px) {
+            width: 300px;
+          }
           h5 {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 14px;
             font-weight: 200;
-
+        
             span {
               color: #6721eb;
             }

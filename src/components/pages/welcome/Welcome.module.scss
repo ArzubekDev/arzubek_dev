@@ -75,7 +75,7 @@
           font-size: 40px;
         }
         @media (max-width: 418px) {
-          font-size: 30px;
+          font-size: 38px;
         }
       }
 
@@ -162,6 +162,10 @@
       @media (max-width: 449px) {
         width: 370px;
       }
+      @media (max-width: 400px) {
+        width: 350px;
+      }
+      
     }
     .resume {
       margin-top: 20px;

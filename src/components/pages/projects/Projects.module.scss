@@ -86,32 +86,36 @@
         gap: 0;
       }
       @media (max-width: 650px) {
-        width: 530px;
+        width: clamp(20.938rem, 5.808rem + 67.24vw, 33.125rem);
         height: 300px;
         margin-bottom: 20px;
       }
       @media (max-width: 572px) {
-        width: 458px;
+        // width: 458px;
         height: 230px;
       }
-      @media (max-width: 528px) {
-        width: 402px;
-      }
-      @media (max-width: 500px) {
-        width: 430px;
-      }
-      @media (max-width: 480px) {
-        width: 410px;
-      }
-      @media (max-width: 449px) {
-        width: 370px;
-      }
+      // @media (max-width: 528px) {
+      //   width: 402px;
+      // }
+      // @media (max-width: 500px) {
+      //   width: 430px;
+      // }
+      // @media (max-width: 480px) {
+      //   width: 410px;
+      // }
+      // @media (max-width: 449px) {
+      //   width: 370px;
+      // }
       @media (max-width: 436px) {
         border-radius: 14px;
       }
       @media (max-width: 418px) {
         width: 354px;
       }
+       @media (max-width: 408px) {
+        width: 335px;
+      }
+      
       &:hover {
         transform: translateY(-6px);
         border-color: rgba(103, 33, 235, 0.4);
