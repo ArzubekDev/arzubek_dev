@@ -4,6 +4,7 @@
   background: rgba(10, 5, 25, 0.7);
   backdrop-filter: blur(6px);
   z-index: 999;
+
 }
 
 .contentModal {
@@ -22,6 +23,29 @@
   align-items: center;
   color: #fff;
   box-shadow: 0 0 50px rgba(103, 33, 235, 0.3);
+    @media (max-width: 1200px) {
+    left: 31%;
+  }
+   @media (max-width: 950px) {
+    left: 26%;
+  }
+   @media (max-width: 800px) {
+    left: 21%;
+  }
+   @media (max-width: 680px) {
+    left: 16%;
+  }
+   @media (max-width: 580px) {
+    left: 10%;
+  }
+   @media (max-width: 546px) {
+    left: 7%;
+  }
+   @media (max-width: 514px) {
+    left: 5%;
+  }
+  
+  
 }
 
 .title {

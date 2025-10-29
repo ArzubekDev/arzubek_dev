@@ -42,6 +42,10 @@
       @media (max-width: 1000px) {
         width: 5%;
       }
+      @media (max-width: 514px) {
+        width: 10%;
+      }
+      
       &:hover {
         .front,
         .back,
@@ -193,42 +197,42 @@
         }
       }
     }
-.leftmobile {
-  transition: height 0.3s ease-in;
-  border: 2px solid #6721eb;
-  background: rgb(19, 3, 49);
-  backdrop-filter: blur(18px);
-  position: fixed;
-  right: 20px;
-  top: 60px;
-  z-index: 999;
-  display: none;
-  flex-direction: column;
-  align-items: start;
-  gap: 20px;
-  padding: 30px;
+    .leftmobile {
+      transition: height 0.3s ease-in;
+      border: 2px solid #6721eb;
+      background: rgb(19, 3, 49);
+      backdrop-filter: blur(18px);
+      position: fixed;
+      right: 20px;
+      top: 60px;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+      padding: 30px;
 
-    nav{
-    .navLink{
-      color: white;
-      span{
-        color: #6721eb;
+      nav {
+        .navLink {
+          color: white;
+          span {
+            color: #6721eb;
+          }
+        }
       }
     }
-  }
-}
 
-.menuOpen {
-  display: flex;
-  height: 300px;
-  width: 220px;
-}
-
+    .menuOpen {
+      display: flex;
+      height: 300px;
+      width: 220px;
+    }
 
     .toggle {
       position: relative;
       width: 40px;
       height: calc(4px * 3 + 11px * 2);
+      height: 4px;
       cursor: pointer;
       display: none;
       transition: transform 0.4s ease;
@@ -245,6 +249,13 @@
         border-radius: 2px;
         background: #6721eb;
         transition: none 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5) 0s;
+
+        @media (max-width: 514px) {
+          height: 2px;
+          &:nth-child(2) {
+            height: 1.6px;
+          }
+        }
       }
 
       .barTop {
@@ -270,6 +281,9 @@
           bottom: calc(50% - 2px);
           transform: rotate(135deg);
           transition-delay: 0s, 0.35s;
+          @media (max-width: 514px) {
+            bottom: calc(50% - 1px);
+          }
         }
 
         .barMiddle {
@@ -282,6 +296,9 @@
           top: calc(50% - 2px);
           transform: rotate(225deg);
           transition-delay: 0s, 0.35s;
+          @media (max-width: 514px) {
+            top: calc(50% - 1px);
+          }
         }
       }
     }
