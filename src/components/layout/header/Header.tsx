@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import scss from "./Header.module.scss";
+import { useRouter } from "next/navigation";
 
 type NavItem = {
   id: number;
@@ -19,7 +20,7 @@ export default function Header() {
   const [activeId, setActiveId] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const nav = useRouter()
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -51,8 +52,8 @@ export default function Header() {
     <header className={`${scss.header} ${scrolled ? scss.active : ""}`}>
       <div className="container">
         <div className={scss.content}>
-          <div className={scss.logoContainer}>
-            <div className={scss.logo}></div>
+          <div className={scss.logoContainer}  onClick={() => nav.push("/")}>
+            <div className={scss.logo} ></div>
             <span className={scss.back}></span>
             <span className={scss.front}></span>
             <h2>A</h2>

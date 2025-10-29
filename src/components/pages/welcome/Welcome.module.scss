@@ -77,6 +77,13 @@
         @media (max-width: 418px) {
           font-size: 38px;
         }
+        @media (max-width: 398px) {
+          font-size: 34px;
+        }
+         @media (max-width: 356px) {
+          font-size: 31px;
+        }
+        
       }
 
       /* text animation */
@@ -150,21 +157,10 @@
       line-height: 26px;
       letter-spacing: 0.3px;
       @media (max-width: 650px) {
-        width: 500px;
+        width: clamp(18.75rem, 1.488rem + 73.26vw, 31.25rem);
         line-height: 22px;
       }
-      @media (max-width: 528px) {
-        width: 450px;
-      }
-      @media (max-width: 480px) {
-        width: 400px;
-      }
-      @media (max-width: 449px) {
-        width: 370px;
-      }
-      @media (max-width: 400px) {
-        width: 350px;
-      }
+
       
     }
     .resume {
