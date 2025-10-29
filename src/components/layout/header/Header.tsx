@@ -1,8 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import scss from "./Header.module.scss";
 import { useRouter } from "next/navigation";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTelegramPlane,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 type NavItem = {
   id: number;
@@ -20,7 +27,11 @@ export default function Header() {
   const [activeId, setActiveId] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const nav = useRouter()
+  const nav = useRouter();
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  // --- 1. Scroll active section highlight ---
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -48,17 +59,47 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // --- 2. Click outside to close menu ---
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    // cleanup
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [menuOpen]);
+  // --- 3. Close menu when resizing to desktop ---
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1200) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header className={`${scss.header} ${scrolled ? scss.active : ""}`}>
       <div className="container">
         <div className={scss.content}>
-          <div className={scss.logoContainer}  onClick={() => nav.push("/")}>
-            <div className={scss.logo} ></div>
+          <div className={scss.logoContainer} onClick={() => nav.push("/")}>
+            <div className={scss.logo}></div>
             <span className={scss.back}></span>
             <span className={scss.front}></span>
             <h2>A</h2>
           </div>
 
+          {/* Desktop menu */}
           <div className={scss.left}>
             {navItems.map((el) => (
               <nav key={el.id}>
@@ -76,7 +117,10 @@ export default function Header() {
               <span>Резюме</span>
             </button>
           </div>
+
+          {/* Mobile menu */}
           <div
+            ref={menuRef}
             className={`${scss.leftmobile} ${menuOpen ? scss.menuOpen : ""}`}
           >
             {navItems.map((el) => (
@@ -90,8 +134,47 @@ export default function Header() {
                 </Link>
               </nav>
             ))}
+            <div className={scss.socials}>
+              <a
+                href="https://wa.me/+996550835345"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp />
+              </a>
+              <a
+                href="https://t.me/ArzubekDev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTelegramPlane />
+              </a>
+              <a
+                href="https://instagram.com/dzhuraev_000"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://github.com/ArzubekDev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/arzubek-d-a5b69b37b/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedinIn />
+              </a>
+            </div>
+            <p className={scss.email}>arzubekmain2909@gmail.com</p>
           </div>
 
+          {/* Burger toggle */}
           <div
             className={`${scss.toggle} ${menuOpen ? scss.checked : ""}`}
             onClick={() => setMenuOpen((prev) => !prev)}

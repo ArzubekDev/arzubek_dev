@@ -198,6 +198,7 @@
       }
     }
     .leftmobile {
+      position: relative;
       transition: height 0.3s ease-in;
       border: 2px solid #6721eb;
       background: rgb(19, 3, 49);
@@ -220,11 +221,30 @@
           }
         }
       }
+      .socials{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 30px;
+        a{
+          font-size: 26px;
+          color: #6721eb;
+
+        }
+      }
+      .email{
+        position: absolute;
+        bottom: 10px;
+        left: 18px;
+        color: #b091ffb1;
+        font-size: 12px;
+      }
     }
 
     .menuOpen {
       display: flex;
-      height: 300px;
+      height: 260px;
       width: 220px;
     }
 
