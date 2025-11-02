@@ -75,12 +75,15 @@ const projects = {
     tools: null,
   },
 };
+interface ProjectPageProps {
+  params: Promise<{ slug: string }>;
+}
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = projects[params.slug as keyof typeof projects];
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params; 
+  const project = projects[slug as keyof typeof projects];
 
   if (!project) return notFound();
-
   return (
     <div className={scss.projectPage}>
       <Link href={"/"} className={scss.back}>
