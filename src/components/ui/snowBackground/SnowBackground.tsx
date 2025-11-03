@@ -3,6 +3,8 @@ import { useEffect } from "react";
 
 export default function SnowBackground() {
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d")!;
     document.body.appendChild(canvas);
