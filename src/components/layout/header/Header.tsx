@@ -113,9 +113,14 @@ export default function Header() {
                 </Link>
               </nav>
             ))}
-            <button className={scss.resume}>
+            <a
+              href="/АРЗУБЕК ДЖУРАЕВ.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={scss.resume}
+            >
               <span>Резюме</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu */}

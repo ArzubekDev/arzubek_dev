@@ -26,9 +26,14 @@ const Welcome = () => {
           предлагать идеи, искать эффективные решения и мыслить как человек,
           создающий продукт, а не просто выполняющий задачу.
         </p>
-        <button className={scss.resume}>
+        <a
+          href="/АРЗУБЕК ДЖУРАЕВ.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={scss.resume}
+        >
           <span>Резюме</span>
-        </button>
+        </a>
       </div>
     </section>
   );

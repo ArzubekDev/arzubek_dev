@@ -100,13 +100,6 @@
        @media (max-width: 380px){
         transform: translateX(5px);
       }
-      
-
-      &:hover {
-        transform: translateY(-6px);
-        border-color: rgba(103, 33, 235, 0.4);
-        box-shadow: 0 0 30px rgba(103, 33, 235, 0.25);
-      }
 
       .image_container {
         flex: 1;
