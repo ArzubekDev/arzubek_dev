@@ -2,14 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
-html, body {
+html,
+body {
   font-family: var(--font-jetbrains-mono, var(--font-inconsolata)), monospace;
   background: #07000e;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
-
 
 .container {
   width: 98%;
@@ -25,8 +27,6 @@ button {
 a {
   text-decoration: none;
 }
-
-
 
 // | Префикс     | Мааниси                                   |
 // | ----------- | ----------------------------------------- |
