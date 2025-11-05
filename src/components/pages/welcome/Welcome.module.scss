@@ -56,6 +56,7 @@
     .title {
       h1 {
         font-size: 80px;
+        user-select: none;
         background: linear-gradient(
           180deg,
           rgba(247, 247, 247, 1) 62%,
@@ -90,11 +91,13 @@
         position: relative;
         height: 80px;
         overflow: hidden;
+
         @media (max-width: 528px) {
           height: 50px;
         }
         h2 {
           position: absolute;
+          user-select: none;
           width: 100%;
           font-size: 60px;
           color: transparent;
