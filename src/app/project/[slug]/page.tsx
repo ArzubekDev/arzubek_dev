@@ -91,12 +91,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         Назад
       </Link>
 
-      <div className={scss.aboutMobile}>
-        <h1>{project.title}</h1>
-        <p>{project.description}</p>
-        <div className={scss.build}>{project.build}</div>
-      </div>
-
       <div className={scss.content}>
         <ProjectSlider project={project} />
         <div className={scss.about}>
