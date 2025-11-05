@@ -80,10 +80,9 @@
         @media (max-width: 398px) {
           font-size: 34px;
         }
-         @media (max-width: 356px) {
+        @media (max-width: 356px) {
           font-size: 31px;
         }
-        
       }
 
       /* text animation */
@@ -157,11 +156,9 @@
       line-height: 26px;
       letter-spacing: 0.3px;
       @media (max-width: 650px) {
-        width: clamp(18.75rem, 1.488rem + 73.26vw, 31.25rem);
+        width: clamp(21.875rem, -0.116rem + 92.59vw, 37.5rem);
         line-height: 22px;
       }
-
-      
     }
     .resume {
       margin-top: 20px;
