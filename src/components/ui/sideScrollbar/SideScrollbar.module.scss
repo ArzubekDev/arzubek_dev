@@ -1,0 +1,21 @@
+.siteScrollBar {
+  position: fixed;
+  top: 0;
+  right: 0px;
+  width: 5px;
+  height: 100vh;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.scroll_Bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(180deg, #8655f7, #4e21a8);
+  border-radius: 10px;
+  transition: transform 0.1s linear;
+}

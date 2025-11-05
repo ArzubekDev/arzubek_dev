@@ -5,6 +5,7 @@ import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import BackgroundGlow from "../ui/backgroundGlow/BackgroundGlow";
 import LightEffect from "../ui/lightEffect/LightEffect";
+import SideScrollbar from "../ui/sideScrollbar/SideScrollbar";
 
 interface LayoutSiteProps {
   children: ReactNode;
@@ -23,6 +24,7 @@ const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
       <Footer />
       <BackgroundGlow />
       <LightEffect/>
+      <SideScrollbar/>
     </div>
   );
 };
