@@ -36,8 +36,6 @@ const SendMessage = () => {
     setError((prev) => ({ ...prev, [name]: false }));
   };
 
-  
-
   async function handleMessage() {
     const newErrors: ErrorState = {
       name: !formData.name.trim(),
@@ -76,16 +74,20 @@ const SendMessage = () => {
         <div className={scss.subtitle}>
           <h4>Готов к новым идеям и совместным проектам.</h4>
         </div>
+
+        {/* Name */}
         <div className={scss.inputContainer}>
-          <div className={scss.placeholder}>
+          <label htmlFor="name" className={scss.placeholder}>
             Ваше имя{" "}
             <span style={{ opacity: error.name ? "1" : "0" }}>
               (*Обязательное поле!)
             </span>
-          </div>
+          </label>
           <input
             type="text"
+            id="name"
             name="name"
+            autoComplete="name"
             value={formData.name}
             onChange={handleChange}
             placeholder="Имя"
@@ -95,39 +97,49 @@ const SendMessage = () => {
           />
         </div>
 
+        {/* Email */}
         <div className={scss.inputContainer}>
-          <div className={scss.placeholder}>
+          <label htmlFor="email" className={scss.placeholder}>
             Ваш Email адрес{" "}
             <span style={{ opacity: error.email ? "1" : "0" }}>
               (*Обязательное поле!)
             </span>
-          </div>
+          </label>
           <input
             type="email"
+            id="email"
             name="email"
+            autoComplete="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
             style={{
-              border: error.email ? "1px solid red" : "rgba(255, 255, 255, 0.15)",
+              border: error.email
+                ? "1px solid red"
+                : "rgba(255, 255, 255, 0.15)",
             }}
           />
         </div>
 
+        {/* Message */}
         <div className={scss.inputContainer}>
-          <div className={scss.placeholder}>
-            Ваша сообщение{" "}
+          <label htmlFor="message" className={scss.placeholder}>
+            Ваше сообщение{" "}
             <span style={{ opacity: error.message ? "1" : "0" }}>
               (*Обязательное поле!)
             </span>
-          </div>
+          </label>
           <textarea
-            placeholder="Текст"
+            id="message"
             name="message"
+            autoComplete="off"
+            placeholder="Текст"
             value={formData.message}
             onChange={handleChange}
             style={{
-              border: error.message ? "1px solid rgb(202, 56, 56)" : "rgba(255, 255, 255, 0.15)",
+              border: error.message
+                ? "1px solid rgb(202, 56, 56)"
+                : "rgba(255, 255, 255, 0.15)",
             }}
           ></textarea>
         </div>
@@ -137,6 +149,7 @@ const SendMessage = () => {
           <button type="submit">Отправить</button>
         </div>
       </form>
+
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
