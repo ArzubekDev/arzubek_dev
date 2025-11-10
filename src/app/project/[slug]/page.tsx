@@ -4,6 +4,7 @@ import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import Copy from "./Copy";
 import ProjectSlider from "./ProjectSlider";
+import BackButton from "./BackButton";
 
 const projects = {
   filmhub: {
@@ -86,10 +87,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) return notFound();
   return (
     <div className={scss.projectPage}>
-      <Link href={"/"} className={scss.back}>
-        <IoIosArrowBack />
-        Назад
-      </Link>
+     <BackButton/>
 
       <div className={scss.content}>
         <ProjectSlider project={project} />
