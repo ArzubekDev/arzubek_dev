@@ -1,5 +1,4 @@
-"use client";
-import { FC, ReactNode, useEffect } from "react";
+import { FC, ReactNode } from "react";
 import scss from "./LayoutSite.module.scss";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
@@ -23,8 +22,8 @@ const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
       <main>{children}</main>
       <Footer />
       <BackgroundGlow />
-      <LightEffect/>
-      <SideScrollbar/>
+      <LightEffect />
+      <SideScrollbar />
     </div>
   );
 };

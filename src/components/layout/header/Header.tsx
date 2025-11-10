@@ -92,12 +92,12 @@ export default function Header() {
     <header className={`${scss.header} ${scrolled ? scss.active : ""}`}>
       <div className="container">
         <div className={scss.content}>
-          <div className={scss.logoContainer} onClick={() => nav.push("/")}>
+          <a className={scss.logoContainer} href="#welcome">
             <div className={scss.logo}></div>
             <span className={scss.back}></span>
             <span className={scss.front}></span>
-            <h2>A</h2>
-          </div>
+            <span className={scss.a}>A</span>
+          </a>
 
           {/* Desktop menu */}
           <div className={scss.left}>

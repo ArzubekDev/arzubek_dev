@@ -11,17 +11,17 @@ const SideScrollbar = () => {
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
 
-      const barHeight = 120; // фикстелген бийиктик
+      if (!scrollBar) return;
+
+      // Scroll bar бийиктиги пропорционалдуу
+      const barHeight = (winHeight / docHeight) * winHeight;
       const maxScroll = docHeight - winHeight;
       const maxTranslate = winHeight - barHeight;
 
-      // жылыш пайызын эсептөө
       const scrollPercent = (scrollTop / maxScroll) * maxTranslate;
 
-      if (scrollBar) {
-        scrollBar.style.height = `${barHeight}px`;
-        scrollBar.style.transform = `translateY(${scrollPercent}px)`;
-      }
+      scrollBar.style.height = `${barHeight}px`;
+      scrollBar.style.transform = `translateY(${scrollPercent}px)`;
     };
 
     handleScroll();

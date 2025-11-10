@@ -4,3 +4,4 @@ import React from 'react';
 const page = () => <MainPage/>
 
 export default page;
+export const dynamic = "force-static";

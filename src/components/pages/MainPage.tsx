@@ -4,18 +4,19 @@ import ProjectsServer from "./projects/Projects";
 import Contact from "./contact/Contact";
 
 export default async function MainPage() {
-
   return (
     <>
-      <Welcome />
+      <div id="welcome">
+        <Welcome />
+      </div>
       <div id="about">
-      <About />
+        <About />
       </div>
       <div id="projects">
-      <ProjectsServer />
+        <ProjectsServer />
       </div>
       <div id="contact">
-      <Contact />
+        <Contact />
       </div>
     </>
   );

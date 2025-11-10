@@ -1,78 +1,109 @@
-// "use client";
+"use client";
+import Image from "next/image";
+import { FiLink } from "react-icons/fi";
+import Link from "next/link";
+import { FaAngleRight } from "react-icons/fa";
+import scss from "./Projects.module.scss";
 
-// import { useState } from "react";
-// import Image from "next/image";
-// import scss from "./Projects.module.scss";
 
-// interface Project {
-//   id: number;
-//   title: string;
-//   imageUrl: string;
-// }
+interface TechProps {
+  name: string;
+  img: string;
+}
 
-// interface ProjectsClientProps {
-//   projects: Project[];
-// }
+interface ProjectsProps {
+  id: number;
+  title: string;
+  link: string;
+  imageUrl: string;
+  slug: string;
+  technologies: TechProps[];
+}
 
-// export default function ProjectsClient({ projects }: ProjectsClientProps) {
-//   const [zoomedId, setZoomedId] = useState<number | null>(null);
-//   const [originMap, setOriginMap] = useState<Record<number, { x: string; y: string }>>({});
+const projects: ProjectsProps[] = [
+  {
+    id: 1,
+    title: "FilmHub",
+    link: "https://filmhub-8vcu.vercel.app/",
+    imageUrl: "/filmhubimg.png",
+    slug: "filmhub",
+    technologies: [
+      { name: "React + Vite", img: "/icons/react.png" },
+      { name: "SASS", img: "/icons/sass.jpg" },
+      { name: "Movie API", img: "/icons/api.png" },
+      { name: "Framer Motion", img: "/icons/motion.png" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Моё первое портфолио",
+    link: "https://portfolio-flame-nu-18.vercel.app/",
+    imageUrl: "/portfolio.png",
+    slug: "portfolio",
+    technologies: [
+      { name: "NextJS", img: "/icons/next.png" },
+      { name: "SASS", img: "/icons/sass.jpg" },
+      { name: "Framer Motion", img: "/icons/motion.png" },
+    ],
+  },
+];
 
-//   const handleMouseEnter = (id: number, e: React.MouseEvent<HTMLDivElement>) => {
-//     setZoomedId(id);
-//     updateOrigin(id, e);
-//   };
+const ProjectsClient = () => {
 
-//   const handleMouseMove = (id: number, e: React.MouseEvent<HTMLDivElement>) => {
-//     if (zoomedId !== id) return;
-//     updateOrigin(id, e);
-//   };
+  return (
+    <>
+      {projects.map((el) => (
+        <div className={scss.block} key={el.id}>
+          <div className={scss.image_container}>
+            <Image
+              src={el.imageUrl}
+              alt={el.title}
+              width={520}
+              height={270}
+              priority
+              style={{ borderRadius: "20px" }}
+            />
+          </div>
 
-//   const handleMouseLeave = (id: number) => {
-//     setZoomedId(null);
-//     setOriginMap((prev) => ({ ...prev, [id]: { x: "50%", y: "50%" } }));
-//   };
+          <div className={scss.info}>
+            <h2>{el.title}</h2>
+            <h3>Работал над:</h3>
+            <h5>
+              <span>Website</span>
+            </h5>
 
-//   const updateOrigin = (id: number, e: React.MouseEvent<HTMLDivElement>) => {
-//     const rect = e.currentTarget.getBoundingClientRect();
-//     const x = ((e.clientX - rect.left) / rect.width) * 100;
-//     const y = ((e.clientY - rect.top) / rect.height) * 100;
-//     setOriginMap((prev) => ({ ...prev, [id]: { x: `${x}%`, y: `${y}%` } }));
-//   };
+            <h3>Технологии, которые я использовал:</h3>
+            <div className={scss.tech}>
+              {el.technologies.map((tech, index) => (
+                <div key={index} className={scss.techItem}>
+                  <div className={scss.classImage}>
+                    <Image
+                      src={tech.img}
+                      alt={tech.name}
+                      width={30}
+                      height={30}
+                      priority
+                      quality={30}
+                    />
+                  </div>
+                  <p>{tech.name}</p>
+                </div>
+              ))}
+            </div>
 
-//   return (
-//     <>
-//       {projects.map((project) => {
-//         const isZoomed = zoomedId === project.id;
-//         const origin = originMap[project.id] || { x: "50%", y: "50%" };
+            <div className={scss.actionButtons}>
+              <Link href={el.link} target="_blank" className={scss.projectLink}>
+                <FiLink /> {el.slug}.com
+              </Link>
+              <Link href={`/project/${el.slug}`} className={scss.button}>
+                Подробнее <FaAngleRight />
+              </Link>
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
 
-//         return (
-//           <div
-//             key={project.id}
-//             className={scss.image_container}
-//             onMouseEnter={(e) => handleMouseEnter(project.id, e)}
-//             onMouseMove={(e) => handleMouseMove(project.id, e)}
-//             onMouseLeave={() => handleMouseLeave(project.id)}
-//           >
-//             <Image
-//               src={project.imageUrl}
-//               alt={project.title}
-//               width={480}
-//               height={270}
-//               priority
-//               quality={50}
-//               style={{
-//                 transform: isZoomed ? "scale(1.3)" : "scale(1)",
-//                 transformOrigin: `${origin.x} ${origin.y}`,
-//                 transition: isZoomed
-//                   ? "transform 0.25s ease-out, filter 0.25s ease-out"
-//                   : "transform 0.5s ease-out, filter 0.5s ease-out",
-//                 filter: isZoomed ? "brightness(1.1)" : "brightness(1)",
-//               }}
-//             />
-//           </div>
-//         );
-//       })}
-//     </>
-//   );
-// }
+export default ProjectsClient;

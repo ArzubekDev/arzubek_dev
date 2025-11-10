@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import scss from "./ProjectPage.module.scss";
-import React from "react";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import Copy from "./Copy";
@@ -30,7 +29,8 @@ const projects = {
         </a>
         , включая эффект <q>fade-shadow</q> при скролле фильмов и плавную смену
         категорий <q>week-today</q>. Для стилей применяются{" "}
-        <code>SCSS-модули</code>,а верстка адаптирована под различные устройства. Палитра цветов подобрана на{" "}
+        <code>SCSS-модули</code>,а верстка адаптирована под различные
+        устройства. Палитра цветов подобрана на{" "}
         <a href="https://coolors.co" target="_blank" rel="noopener noreferrer">
           coolors.co
         </a>
@@ -80,7 +80,7 @@ interface ProjectPageProps {
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params; 
+  const { slug } = await params;
   const project = projects[slug as keyof typeof projects];
 
   if (!project) return notFound();
