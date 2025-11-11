@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
 import scss from "./ProjectPage.module.scss";
 import Link from "next/link";
-import { IoIosArrowBack } from "react-icons/io";
 import Copy from "./Copy";
-import ProjectSlider from "./ProjectSlider";
 import BackButton from "./BackButton";
+import ProjectSlider from "./ProjectSlider";
 
-const projects = {
+ const projects = {
   filmhub: {
     link: "https://filmhub-8vcu.vercel.app/",
     title: "FilmHub",
@@ -87,7 +86,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) return notFound();
   return (
     <div className={scss.projectPage}>
-     <BackButton/>
+      <BackButton />
 
       <div className={scss.content}>
         <ProjectSlider project={project} />

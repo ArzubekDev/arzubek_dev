@@ -7,7 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import scss from "./ProjectPage.module.scss";
 
-interface Project {
+export interface Project {
   title: string;
   images: string[];
 }
