@@ -1,75 +1,48 @@
 "use client";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
+import { useForm } from "react-hook-form";
 import scss from "./Contact.module.scss";
-import ContactModal from "./contactModal/ContactModal";
 
 interface FormData {
   name: string;
   email: string;
   message: string;
 }
-interface ErrorState {
-  name: boolean;
-  email: boolean;
-  message: boolean;
+interface SendMessageProps {
+  onSuccess: () => void; // коштук!
 }
 
-const SendMessage = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
+const SendMessage: FC<SendMessageProps> = ({onSuccess}) => {
+
+  // 🔹 1. useForm() форманы баштайт
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    mode: "onChange", // реалтайм валидация
   });
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [error, setError] = useState<ErrorState>({
-    name: false,
-    email: false,
-    message: false,
-  });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    setError((prev) => ({ ...prev, [name]: false }));
-  };
-
-  async function handleMessage() {
-    const newErrors: ErrorState = {
-      name: !formData.name.trim(),
-      email: !formData.email.trim(),
-      message: !formData.message.trim(),
-    };
-
-    if (Object.values(newErrors).some(Boolean)) {
-      setError(newErrors);
-      return;
-    }
-
+  // 🔹 2. handleSubmit() → жиберүү логикасы
+  const onSubmit = async (data: FormData) => {
     const res = await fetch("/api/send-message", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(data),
     });
 
     if (res.ok) {
-      setModalOpen(true);
-      setFormData({ name: "", email: "", message: "" });
+      onSuccess();
+      reset(); // форманы тазалайт
     } else {
       alert("Failed to send message.");
     }
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    handleMessage();
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Свяжитесь со мной</h3>
         <div className={scss.subtitle}>
           <h4>Готов к новым идеям и совместным проектам.</h4>
@@ -79,20 +52,20 @@ const SendMessage = () => {
         <div className={scss.inputContainer}>
           <label htmlFor="name" className={scss.placeholder}>
             Ваше имя{" "}
-            <span style={{ opacity: error.name ? "1" : "0" }}>
-              (*Обязательное поле!)
+            <span style={{ opacity: errors.name ? "1" : "0" }}>
+              (*Заполните здесь!)
             </span>
           </label>
           <input
-            type="text"
             id="name"
-            name="name"
-            autoComplete="name"
-            value={formData.name}
-            onChange={handleChange}
+            type="text"
             placeholder="Имя"
+            autoComplete="name"
+            {...register("name", { required: true })}
             style={{
-              border: error.name ? "1px solid red" : "rgba(255, 255, 255, 0.15)",
+              border: errors.name
+                ? "1px solid red"
+                : "rgba(255, 255, 255, 0.15)",
             }}
           />
         </div>
@@ -100,21 +73,25 @@ const SendMessage = () => {
         {/* Email */}
         <div className={scss.inputContainer}>
           <label htmlFor="email" className={scss.placeholder}>
-            Ваш Email адрес{" "}
-            <span style={{ opacity: error.email ? "1" : "0" }}>
-              (*Обязательное поле!)
+            Ваш Email{" "}
+            <span style={{ opacity: errors.email ? "1" : "0" }}>
+              (Некорректный email!)
             </span>
           </label>
           <input
-            type="email"
             id="email"
-            name="email"
-            autoComplete="email"
-            value={formData.email}
-            onChange={handleChange}
+            type="email"
             placeholder="Email"
+            autoComplete="email"
+            {...register("email", {
+              required: true,
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Неверный email!",
+              },
+            })}
             style={{
-              border: error.email
+              border: errors.email
                 ? "1px solid red"
                 : "rgba(255, 255, 255, 0.15)",
             }}
@@ -125,32 +102,31 @@ const SendMessage = () => {
         <div className={scss.inputContainer}>
           <label htmlFor="message" className={scss.placeholder}>
             Ваше сообщение{" "}
-            <span style={{ opacity: error.message ? "1" : "0" }}>
-              (*Обязательное поле!)
+            <span style={{ opacity: errors.message ? "1" : "0" }}>
+              (*Заполните здесь!)
             </span>
           </label>
           <textarea
             id="message"
-            name="message"
-            autoComplete="off"
             placeholder="Текст"
-            value={formData.message}
-            onChange={handleChange}
+            {...register("message", { required: true })}
             style={{
-              border: error.message
-                ? "1px solid rgb(202, 56, 56)"
+              border: errors.message
+                ? "1px solid red"
                 : "rgba(255, 255, 255, 0.15)",
             }}
+            onKeyDown={(e) => e.key === "Enter" && handleSubmit(onSubmit)()}
           ></textarea>
         </div>
 
         <div className={scss.sendContainer}>
           <div className={scss.bg}></div>
-          <button type="submit">Отправить</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Отправка..." : "Отправить"}
+          </button>
         </div>
       </form>
 
-      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 };

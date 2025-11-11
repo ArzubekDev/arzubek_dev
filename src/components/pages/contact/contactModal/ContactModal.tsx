@@ -20,26 +20,26 @@ const ContactModal: React.FC<ContactModalProps> = ({ open, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-          />
-        </Dialog.Overlay>
-
-        <Dialog.Content asChild>
-          <motion.div
-            className={scss.contentModal}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.4 }}
           >
-            <Dialog.Title className={scss.title}>Спасибо!</Dialog.Title>
-            <Dialog.Description className={scss.description}>
-              Ваше сообщение успешно отправлено.
-            </Dialog.Description>
-            <button className={scss.btn} onClick={onClose}>
-              Закрыть
-            </button>
+            <Dialog.Content asChild>
+              <motion.div
+                className={scss.contentModal}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.4 }}
+              >
+                <Dialog.Title className={scss.title}>Спасибо!</Dialog.Title>
+                <Dialog.Description className={scss.description}>
+                  Ваше сообщение успешно отправлено.
+                </Dialog.Description>
+                <button className={scss.btn} onClick={onClose}>
+                  Закрыть
+                </button>
+              </motion.div>
+            </Dialog.Content>
           </motion.div>
-        </Dialog.Content>
+        </Dialog.Overlay>
       </Dialog.Portal>
     </Dialog.Root>
   );
