@@ -12,7 +12,6 @@ interface LayoutSiteProps {
 
 const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
 
-
   return (
     <div
       className={scss.layoutSite}

@@ -60,7 +60,6 @@ const ProjectsClient = () => {
               alt={el.title}
               width={520}
               height={270}
-              priority
               style={{ borderRadius: "20px" }}
             />
           </div>
@@ -82,7 +81,6 @@ const ProjectsClient = () => {
                       alt={tech.name}
                       width={30}
                       height={30}
-                      priority
                       quality={30}
                     />
                   </div>
@@ -92,7 +90,7 @@ const ProjectsClient = () => {
             </div>
 
             <div className={scss.actionButtons}>
-              <Link href={el.link} target="_blank" className={scss.projectLink}>
+              <Link href={el.link} target="_blank" className={scss.projectLink} prefetch={true}>
                 <FiLink /> {el.slug}.com
               </Link>
               <Link href={`/project/${el.slug}`} className={scss.button}>

@@ -1,0 +1,54 @@
+.notFoundContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  .notFound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+    h1 {
+      color: white;
+    }
+    button {
+      margin-bottom: 40px;
+      width: 130px;
+      height: 42px;
+      display: flex;
+      align-items: center;  
+      justify-content: center;
+      gap: 6px;
+      border-radius: 8px;
+      background: rgba(103, 33, 235, 0.1);
+      color: #c8bfff;
+      font-weight: 400;
+      border: 1px solid rgba(103, 33, 235, 0.4);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+      box-shadow: 0 0 8px rgba(103, 33, 235, 0.2);
+      font-size: 18px;
+      svg {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        background: rgba(103, 33, 235, 0.25);
+        color: white;
+        transform: translateY(-2px);
+        svg {
+          transform: translateX(-4px);
+        }
+        box-shadow: 0 0 12px rgba(103, 33, 235, 0.4);
+      }
+
+      &:active {
+        transform: translateY(1px);
+        box-shadow: 0 0 6px rgba(103, 33, 235, 0.3);
+      }
+    }
+  }
+}
