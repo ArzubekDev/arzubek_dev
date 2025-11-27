@@ -114,7 +114,7 @@ export default function Header() {
               </nav>
             ))}
             <a
-              href="/АРЗУБЕК ДЖУРАЕВ.pdf"
+              href="/АРЗУБЕК Full-Stack.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={scss.resume}
