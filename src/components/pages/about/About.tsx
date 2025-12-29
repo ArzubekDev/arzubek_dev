@@ -4,14 +4,18 @@ import { AiOutlinePushpin } from "react-icons/ai";
 import Image from "next/image";
 
 const skills: string[] = [
-  "HTML",
-  "CSS",
-  "Javascript (ES6+)",
+  "JavaScript (ES6+)",
   "React",
-  "Typescript",
+  "RTK Query",
+  "Zustand",
+  "TypeScript",
   "NextJS",
   "SASS",
+  "Tailwind",
   "Nodejs",
+  "Express",
+  "Prisma",
+  "NestJS"
 ];
 
 const About = () => {

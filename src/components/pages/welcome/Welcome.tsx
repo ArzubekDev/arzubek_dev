@@ -2,7 +2,7 @@ import React from "react";
 import scss from "./Welcome.module.scss";
 
 const text: string[] = [
-  "Frontend разработчик",
+  "Full-Stack разработчик",
   "NextJS специалисть",
   "Web разработчик",
 ];

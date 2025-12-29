@@ -40,9 +40,7 @@ export default function RootLayout({
         <StrictMode>
           <RootContext>
             <SnowBackground />
-            <LayoutSite>
               {children}
-            </LayoutSite>
           </RootContext>
         </StrictMode>
       </body>

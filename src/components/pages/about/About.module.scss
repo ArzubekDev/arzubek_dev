@@ -78,6 +78,7 @@
         @media (max-width: 418px) {
           width: 100%;
         }
+
         .info {
           display: flex;
           flex-direction: column;
@@ -110,22 +111,22 @@
         }
 
         .skills {
-          width: 400px;
-          height: 110px;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(3, auto);
+          grid-template-rows: repeat(4);
+          width: fit-content;
+          // display: flex;
+          // flex-direction: column;
+          // flex-wrap: wrap;
           gap: 10px;
-          @media (max-width: 418px) {
-            width: 300px;
-          }
+          // height: 110px;
+
           h5 {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 14px;
             font-weight: 200;
-
             span {
               color: #6721eb;
             }

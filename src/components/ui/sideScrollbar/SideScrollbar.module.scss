@@ -22,4 +22,9 @@
   background: linear-gradient(180deg, #8655f7, #4e21a8);
   border-radius: 10px;
   transition: transform 0.1s linear;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 }
