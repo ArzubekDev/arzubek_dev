@@ -16,7 +16,6 @@ function NotFound() {
           Назад
         </button>
       </div>
-
     </div>
   );
 }
