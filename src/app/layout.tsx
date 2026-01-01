@@ -19,7 +19,7 @@ const inconsolata = Inconsolata({
 });
 
 export const metadata: Metadata = {
-  title: "Arzubek | Frontend Developer",
+  title: "Arzubek | Full-Stack Developer",
   description: "Portfolio showcasing web development and creative coding.",
 };
 
