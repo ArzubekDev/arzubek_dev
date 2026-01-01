@@ -24,7 +24,7 @@ const projects: ProjectsProps[] = [
   {
     id: 1,
     title: "FilmHub",
-    link: "https://filmhub-8vcu.vercel.app/",
+    link: "https://filmhub-byarzu.vercel.app/",
     imageUrl: "/filmhubimg.png",
     slug: "filmhub",
     technologies: [

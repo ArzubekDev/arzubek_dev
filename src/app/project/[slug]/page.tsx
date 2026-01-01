@@ -7,7 +7,7 @@ import ProjectSlider from "./ProjectSlider";
 
  const projects = {
   filmhub: {
-    link: "https://filmhub-8vcu.vercel.app/",
+    link: "https://filmhub-byarzu.vercel.app/",
     title: "FilmHub",
     description:
       "FilmHub — платформа для поиска фильмов и получения информации о них, созданная с использованием TMDB API. Пользователи могут искать фильмы, смотреть трейлеры, изучать рейтинги. Проект был создан во время изучения Reactjs (redux/toolkit) и помог мне лучше разобраться в том, как устроены и взаимодействуют компоненты в React.",
