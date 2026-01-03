@@ -10,31 +10,26 @@ import ProjectSlider from "./ProjectSlider";
     link: "https://filmhub-byarzu.vercel.app/",
     title: "FilmHub",
     description:
-      "FilmHub — платформа для поиска фильмов и получения информации о них, созданная с использованием TMDB API. Пользователи могут искать фильмы, смотреть трейлеры, изучать рейтинги. Проект был создан во время изучения Reactjs (redux/toolkit) и помог мне лучше разобраться в том, как устроены и взаимодействуют компоненты в React.",
+      "FilmHub — платформа для поиска фильмов и получения информации о них, созданная с использованием TMDB API. Пользователи могут искать фильмы, смотреть трейлеры, изучать рейтинги. Проект был реализован с помощью React.js и его экосистемы и позволил глубже разобраться в архитектуре приложения, взаимодействии компонентов, работе с асинхронными запросами и оптимизации пользовательского интерфейса.",
     build: (
       <>
-        Разработка выполнена с использованием{" "}
-        <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-          React.js
-        </a>{" "}
-        (v19.0). Для управления состоянием используется{" "}
-        <code>Redux Toolkit</code> с <code>createAsyncThunk</code> и{" "}
-        <code>async/await</code>. Анимации реализованы с помощью библиотеки{" "}
-        <a
-          href="https://www.framer.com/motion/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Framer Motion
-        </a>
-        , включая эффект <q>fade-shadow</q> при скролле фильмов и плавную смену
-        категорий <q>week-today</q>. Для стилей применяются{" "}
-        <code>SCSS-модули</code>,а верстка адаптирована под различные
-        устройства. Палитра цветов подобрана на{" "}
-        <a href="https://coolors.co" target="_blank" rel="noopener noreferrer">
-          coolors.co
-        </a>
-        . Источник данных — <code>TMDB API</code>.
+     Разработка выполнена с использованием
+<a href="https://react.dev" target="_blank" rel="noopener noreferrer"> React.js</a> (v19.0).
+
+Для работы с серверными данными и асинхронными запросами применяется
+<code> @tanstack/react-query</code>. Глобальное состояние реализовано с помощью
+<code> Redux Toolkit</code> (<code>createAsyncThunk</code>, <code>async/await</code>).
+
+Анимации и интерактивные эффекты выполнены с использованием
+<a href="https://www.framer.com/motion/" target="_blank" rel="noopener noreferrer">Framer Motion</a> и <code>GSAP</code>.
+
+<code>react-hook-form</code> используется для реализации поискового input’а.
+SEO и метаданные управляются через <code>react-helmet-async</code>.
+
+UI-компоненты частично реализованы с помощью <code>@mui/material</code>.
+Стилизация выполнена с использованием <code>SCSS-модулей</code>, адаптивная верстка.
+
+Источник данных — <code>TMDB API</code>.
       </>
     ),
     images: [

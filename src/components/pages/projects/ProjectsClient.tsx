@@ -76,13 +76,13 @@ const ProjectsClient = () => {
               {el.technologies.map((tech, index) => (
                 <div key={index} className={scss.techItem}>
                   <div className={scss.classImage}>
-                    <Image
+                    {/* <Image
                       src={tech.img}
                       alt={tech.name}
                       width={30}
                       height={30}
                       quality={30}
-                    />
+                    /> */}
                   </div>
                   <p>{tech.name}</p>
                 </div>
