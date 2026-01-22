@@ -4,7 +4,7 @@ import scss from "./Welcome.module.scss";
 const text: string[] = [
   "Full-Stack разработчик",
   "NextJS специалисть",
-  "Web разработчик",
+  "React разработчик",
 ];
 
 const Welcome = () => {
