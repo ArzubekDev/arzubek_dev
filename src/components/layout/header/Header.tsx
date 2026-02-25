@@ -114,7 +114,7 @@ export default function Header() {
               </nav>
             ))}
             <a
-              href="/Full-Stack-developer.pdf"
+              href="/Full-Stack-Arzu.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={scss.resume}
