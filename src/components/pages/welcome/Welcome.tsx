@@ -27,7 +27,7 @@ const Welcome = () => {
   а не просто выполняющий задачу.
 </p>
         <a
-          href="/АРЗУБЕК ДЖУРАЕВ.pdf"
+          href="/Full-Stack-Arzu.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className={scss.resume}
