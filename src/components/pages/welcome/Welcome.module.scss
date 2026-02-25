@@ -194,7 +194,6 @@
         background: linear-gradient(120deg, #6721eb, #b191ff, #6721eb);
         background-size: 200% 200%;
 
-        /* ✅ Standard + WebKit masks for compatibility */
         -webkit-mask: linear-gradient(#fff 0 0) content-box,
           linear-gradient(#fff 0 0);
         mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

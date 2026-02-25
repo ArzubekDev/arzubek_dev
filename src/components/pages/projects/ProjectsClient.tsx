@@ -8,7 +8,6 @@ import scss from "./Projects.module.scss";
 
 interface TechProps {
   name: string;
-  img: string;
 }
 
 interface ProjectsProps {
@@ -28,24 +27,32 @@ const projects: ProjectsProps[] = [
     imageUrl: "/filmhubimg.png",
     slug: "filmhub",
     technologies: [
-      { name: "React + Vite", img: "/icons/react.png" },
-      { name: "SASS", img: "/icons/sass.jpg" },
-      { name: "Movie API", img: "/icons/api.png" },
-      { name: "Framer Motion", img: "/icons/motion.png" },
+      { name: "React + Vite",  },
+      { name: "SASS/SCSS",  },
+      { name: "Movie API",},
+      { name: "Framer Motion", },
     ],
   },
-  {
+
+   {
     id: 2,
-    title: "Моё первое портфолио",
-    link: "https://portfolio-flame-nu-18.vercel.app/",
-    imageUrl: "/portfolio.png",
-    slug: "portfolio",
+    title: "Nexus — полноценный онлайн чат",
+    link: "https://nexus-alpha-navy.vercel.app/",
+    imageUrl: "/Nexus-1.png",
+    slug: "nexus",
     technologies: [
-      { name: "NextJS", img: "/icons/next.png" },
-      { name: "SASS", img: "/icons/sass.jpg" },
-      { name: "Framer Motion", img: "/icons/motion.png" },
+      { name: "NextJS",  },
+      { name: "TailwindCSS",  },
+      { name: "Zustand",},
+      { name: "Framer Motion", },
+      { name: "NestJS", },
+      { name: "Prisma", },
+      { name: "Websocket", },
     ],
   },
+
+  
+
 ];
 
 const ProjectsClient = () => {
@@ -66,24 +73,11 @@ const ProjectsClient = () => {
 
           <div className={scss.info}>
             <h2>{el.title}</h2>
-            <h3>Работал над:</h3>
-            <h5>
-              <span>Website</span>
-            </h5>
 
             <h3>Технологии, которые я использовал:</h3>
             <div className={scss.tech}>
               {el.technologies.map((tech, index) => (
                 <div key={index} className={scss.techItem}>
-                  <div className={scss.classImage}>
-                    {/* <Image
-                      src={tech.img}
-                      alt={tech.name}
-                      width={30}
-                      height={30}
-                      quality={30}
-                    /> */}
-                  </div>
                   <p>{tech.name}</p>
                 </div>
               ))}

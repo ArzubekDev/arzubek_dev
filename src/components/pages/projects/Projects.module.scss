@@ -232,7 +232,7 @@
         .tech {
           display: flex;
           flex-wrap: wrap;
-          gap: 10px;
+          gap: 20px;
           @media (max-width: 800px) {
             gap: 18px;
           }
@@ -243,25 +243,6 @@
             color: #fff;
             font-size: 13px;
             font-weight: 400;
-
-            .classImage {
-              width: 28px;
-              height: 28px;
-              border-radius: 50%;
-              overflow: hidden;
-              background: rgba(255, 255, 255, 0.1);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              @media (max-width: 800px) {
-                display: none;
-              }
-              img {
-                width: 20px;
-                height: 20px;
-                object-fit: contain;
-              }
-            }
 
             p {
               color: #e5e5e5;
