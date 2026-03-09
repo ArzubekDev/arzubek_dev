@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import { FiLink } from "react-icons/fi";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
+import { FiLink } from "react-icons/fi";
 import scss from "./Projects.module.scss";
 
 
@@ -22,28 +22,14 @@ interface ProjectsProps {
 const projects: ProjectsProps[] = [
   {
     id: 1,
-    title: "FilmHub",
-    link: "https://filmhub-byarzu.vercel.app/",
-    imageUrl: "/filmhubimg.png",
-    slug: "filmhub",
-    technologies: [
-      { name: "React + Vite",  },
-      { name: "SASS/SCSS",  },
-      { name: "Movie API",},
-      { name: "Framer Motion", },
-    ],
-  },
-
-   {
-    id: 2,
     title: "Nexus — полноценный онлайн чат",
     link: "https://nexus-alpha-navy.vercel.app/",
     imageUrl: "/Nexus-1.png",
     slug: "nexus",
     technologies: [
-      { name: "NextJS",  },
-      { name: "TailwindCSS",  },
-      { name: "Zustand",},
+      { name: "NextJS", },
+      { name: "TailwindCSS", },
+      { name: "Zustand", },
       { name: "Framer Motion", },
       { name: "NestJS", },
       { name: "Prisma", },
@@ -51,7 +37,20 @@ const projects: ProjectsProps[] = [
     ],
   },
 
-  
+  {
+    id: 2,
+    title: "FilmHub",
+    link: "https://filmhub-byarzu.vercel.app/",
+    imageUrl: "/filmhubimg.png",
+    slug: "filmhub",
+    technologies: [
+      { name: "React + Vite", },
+      { name: "SASS/SCSS", },
+      { name: "Movie API", },
+      { name: "Framer Motion", },
+    ],
+  },
+
 
 ];
 
